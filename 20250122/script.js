@@ -38,3 +38,18 @@ toggleBtn.addEventListener('click',()=>{
         colorBox.style.backgroundColor = "blue";
     }
 })
+
+const nameInput = document.getElementById("username");
+
+const myForm = document.getElementById("myForm");
+
+myForm.addEventListener('submit',(e)=>{
+    e.preventDefault;
+    const name = nameInput.value;
+
+    if(name.trim()==""){
+        alert("有効な名前が入力されていません");
+    }else{
+        alert("送信成功");
+    }
+})
