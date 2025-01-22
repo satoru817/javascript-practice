@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Practice</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 10px;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>DOM操作練習</h1>
+    
+    <!-- 問題1: 基本的な要素の取得 -->
+    <section id="section1">
+        <h2>問題1: ID/クラスで要素を取得</h2>
+        <div id="target1">この要素の文字色を赤に変更してください</div>
+        <div class="highlight-me">この要素の背景色を黄色に変更してください</div>
+    </section>
+
+    <!-- 問題2: イベントリスナー -->
+    <section id="section2">
+        <h2>問題2: クリックイベント</h2>
+        <button id="btn1">クリックしてテキスト変更</button>
+        <p id="output1">ここのテキストを変更します</p>
+    </section>
+
+    <!-- 問題3: 要素の追加と削除 -->
+    <section id="section3">
+        <h2>問題3: 動的な要素操作</h2>
+        <input type="text" id="newItem" placeholder="新しいアイテム">
+        <button id="addBtn">追加</button>
+        <ul id="itemList">
+            <li>アイテム1</li>
+            <li>アイテム2</li>
+        </ul>
+    </section>
+
+    <!-- 問題4: クラスの操作 -->
+    <section id="section4">
+        <h2>問題4: クラスの追加/削除</h2>
+        <div class="box" id="toggleBox"></div>
+        <button id="toggleBtn">色を切り替え</button>
+    </section>
+
+    <!-- 問題5: フォーム操作 -->
+    <section id="section5">
+        <h2>問題5: フォームバリデーション</h2>
+        <form id="myForm">
+            <input type="text" id="username" placeholder="ユーザー名">
+            <span id="errorText" class="hidden" style="color: red;">エラーメッセージ</span>
+            <button type="submit">送信</button>
+        </form>
+    </section>
+
+    <script>
+        // ここにJavaScriptコードを書いてください
+        
+        /* 問題1:
+           - id="target1"の要素の文字色を赤に変更
+           - class="highlight-me"の要素に'highlight'クラスを追加
+        */
+
+        /* 問題2:
+           - ボタンをクリックしたら"output1"のテキストを
+             "クリックされました！"に変更
+        */
+
+        /* 問題3:
+           - 入力フィールドの値を使って新しいli要素を作成
+           - リストに追加
+           - 入力フィールドをクリア
+        */
+
+        /* 問題4:
+           - ボタンをクリックするたびに
+           - boxの背景色を青と黄色で切り替え
+        */
+
+        /* 問題5:
+           - フォーム送信時に入力チェック
+           - ユーザー名が空の場合はエラーメッセージを表示
+           - 正しい場合はalertで"送信成功"と表示
+        */
+        
+    </script>
+</body>
+</html>
