@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Practice</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin: 10px;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="problem1">
+      <p id="target-text">Change Me!</p>
+      <button onclick="changeProblem1()">実行</button>
+    </div>
+    <script>
+      function changeProblem1() {
+        const target = document.getElementById('target-text');
+        target.textContent = 'Changed!';
+      }
+    </script>
+
+    <div id="problem2">
+      <p>Counter: <span id="counter">0</span></p>
+      <button id="increment-btn">Increment</button>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('domcontentloaded');
+        initProblem2();
+
+        function initProblem2() {
+          const counter = document.getElementById('counter');
+          const increment_btn = document.getElementById('increment-btn');
+
+          increment_btn.addEventListener('click', () => {
+            console.log('clicked');
+            var num = counter.textContent;
+            num++;
+            counter.textContent = num;
+          });
+        }
+      });
+    </script>
+
+    <div id="problem3">
+      <input type="text" id="item-input" placeholder="Enter item" />
+      <button id="add-btn">Add</button>
+      <ul id="item-list"></ul>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        initProblem3();
+        function initProblem3() {
+          const item_input = document.getElementById('item-input');
+          const add_btn = document.getElementById('add-btn');
+          const item_list = document.getElementById('item-list');
+          add_btn.addEventListener('click', () =>
+            setNewItem(item_input, item_list)
+          );
+        }
+
+        function setNewItem(input, list) {
+          console.log('clicked!!');
+          const text = input.value;
+          if (text.trim() == '') {
+            return;
+          }
+          console.log(text);
+
+          const li = document.createElement('li');
+          const span = document.createElement('span');
+          span.textContent = text;
+          li.appendChild(span);
+          list.appendChild(li);
+        }
+      });
+    </script>
+  </body>
+</html>
