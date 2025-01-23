@@ -46,7 +46,7 @@
       <input type="date" id="task-date" />
       <button id="task-add">追加</button>
       <div id="error-message" class="error"></div>
-      <div id="task-list"></div>
+      <ul id="task-list"></ul>
     </div>
 
     <!-- 問題6: ドラッグ&ドロップ -->
@@ -82,7 +82,52 @@
         }
 
         // // 問題5: 高度なタスク管理
-        // initProblem5();
+        initProblem5();
+
+        function initProblem5() {
+          const task_input = document.getElementById('task-input');
+          const task_date = document.getElementById('task-date');
+          const task_list = document.getElementById('task-list');
+          const add_btn = document.getElementById('task-add');
+
+          add_btn.addEventListener('click', () => {
+            create_new_task(task_input, task_date, task_list);
+          });
+        }
+
+        function create_new_task(input, date, list) {
+          const text = input.value.trim();
+
+          if (text == '') {
+            alert('taskの値が不正です');
+            return;
+          }
+
+          const li = document.createElement('li');
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+
+          const label = document.createElement('label');
+          label.textContent = date.value + ':' + text;
+          label.firstChild.before(checkbox);
+          checkbox.addEventListener('change', () => {
+            toggleLine(checkbox);
+          });
+
+          li.appendChild(label);
+
+          list.appendChild(li);
+        }
+
+        function toggleLine(checkbox) {
+          const target = checkbox.parentElement;
+          if (target.style.textDecoration != 'line-through') {
+            target.style.textDecoration = 'line-through';
+          } else {
+            target.style.textDecoration = 'none';
+          }
+        }
 
         // // 問題6: ドラッグ&ドロップ
         // initProblem6();
