@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Practice - Advanced</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin: 10px;
+        transition: all 0.3s ease;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+      .hidden {
+        display: none;
+      }
+      .task {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+      .completed {
+        background-color: #e0e0e0;
+        text-decoration: line-through;
+      }
+      .error {
+        color: red;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 問題4: マウスオーバーでボックスの色が変わる -->
+    <div id="problem4">
+      <h3>問題4: マウスオーバーエフェクト</h3>
+      <div class="box" id="hover-box"></div>
+    </div>
+
+    <!-- 問題5: タスク管理（完了機能付き） -->
+    <div id="problem5">
+      <h3>問題5: 高度なタスク管理</h3>
+      <input type="text" id="task-input" placeholder="新しいタスク" />
+      <input type="date" id="task-date" />
+      <button id="task-add">追加</button>
+      <div id="error-message" class="error"></div>
+      <div id="task-list"></div>
+    </div>
+
+    <!-- 問題6: ドラッグ&ドロップ -->
+    <div id="problem6">
+      <h3>問題6: ドラッグ&ドロップ</h3>
+      <div id="draggable" draggable="true" class="box"></div>
+      <div
+        id="drop-zone"
+        style="
+          width: 200px;
+          height: 200px;
+          border: 2px dashed #ccc;
+          margin: 20px;
+        "
+      ></div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 問題4: マウスオーバーエフェクト
+        initProblem4();
+        function initProblem4() {
+          const hover_box = document.getElementById('hover-box');
+          console.log(hover_box == null);
+          hover_box.addEventListener('mouseenter', () => {
+            console.log('entered');
+            hover_box.style.backgroundColor = 'pink';
+          });
+          hover_box.addEventListener('mouseout', () => {
+            console.log('out');
+            hover_box.style.backgroundColor = 'yellow';
+          });
+        }
+
+        // // 問題5: 高度なタスク管理
+        // initProblem5();
+
+        // // 問題6: ドラッグ&ドロップ
+        // initProblem6();
+      });
+
+      // ここに実装を書いていきます
+    </script>
+  </body>
+</html>
