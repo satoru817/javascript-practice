@@ -43,7 +43,7 @@
     <div id="problem5">
       <h3>問題5: 高度なタスク管理</h3>
       <input type="text" id="task-input" placeholder="新しいタスク" />
-      <input type="date" id="task-date" />
+      <input type="date" id="task-date" min="" />
       <button id="task-add">追加</button>
       <div id="error-message" class="error"></div>
       <ul id="task-list"></ul>
@@ -89,6 +89,19 @@
           const task_date = document.getElementById('task-date');
           const task_list = document.getElementById('task-list');
           const add_btn = document.getElementById('task-add');
+
+          const today = new Date();
+          const yyyy = today.getFullYear();
+          const mm = String(today.getMonth() + 1).padStart(2, '0'); // 月は0始まり
+          const dd = String(today.getDate()).padStart(2, '0');
+
+          // YYYY-MM-DD形式の文字列を生成
+          const minDate = `${yyyy}-${mm}-${dd}`;
+
+          console.log(minDate);
+
+          // min属性に設定
+          task_date.setAttribute('min', minDate);
 
           add_btn.addEventListener('click', () => {
             create_new_task(task_input, task_date, task_list);
