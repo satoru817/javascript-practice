@@ -143,10 +143,39 @@
         }
 
         // // 問題6: ドラッグ&ドロップ
-        // initProblem6();
-      });
+        initProblem6();
+        function initProblem6() {
+          const drop_zone = document.getElementById('drop-zone');
+          const box = document.getElementById('draggable');
+          let is_in = false;
 
-      // ここに実装を書いていきます
+          drop_zone.addEventListener('dragenter', (e) => {
+            drop_zone.style.backgroundColor = 'yellow';
+            is_in = true;
+            console.log('is_in:' + is_in);
+          });
+
+          drop_zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+          });
+
+          drop_zone.addEventListener('dragleave', (e) => {
+            drop_zone.style.backgroundColor = 'white';
+            is_in = false;
+            console.log('is_in:' + is_in);
+          });
+
+          box.addEventListener('mousedown', (e) => {
+            box.style.backgroundColor = 'pink';
+          });
+
+          drop_zone.addEventListener('drop', (e) => {
+            box.style.backgroundColor = 'blue';
+            drop_zone.style.backgroundColor = 'white';
+            drop_zone.appendChild(box.cloneNode(true));
+          });
+        }
+      });
     </script>
   </body>
 </html>
