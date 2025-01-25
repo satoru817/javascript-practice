@@ -9,6 +9,9 @@
         padding: 20px;
         border: 1px solid #ccc;
       }
+      .color {
+        color: red;
+      }
       .hidden {
         display: none;
       }
@@ -33,6 +36,17 @@
       <button id="colorButton">色を変更</button>
     </div>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const colorBtn = document.getElementById('colorButton');
+        const colorText = document.getElementById('colorText');
+
+        colorBtn.addEventListener('click', () => {
+          colorText.classList.toggle('color');
+        });
+      });
+    </script>
+
     <div class="task">
       <h2>課題2: フォーム操作</h2>
       <p>
@@ -46,6 +60,26 @@
       </p>
     </div>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const inputText = document.getElementById('inputText');
+        const submitBtn = document.getElementById('submitButton');
+        const displayArea = document.getElementById('displayArea');
+        const errorMessage = document.getElementById('errorMessage');
+
+        submitBtn.addEventListener('click', () => {
+          displayArea.textContent = '';
+          const text = inputText.value.trim();
+          if (text == '') {
+            errorMessage.classList.remove('hidden');
+            return;
+          }
+          errorMessage.classList.add('hidden');
+          displayArea.textContent = text;
+        });
+      });
+    </script>
+
     <div class="task">
       <h2>課題3: リスト操作</h2>
       <p>
@@ -55,6 +89,31 @@
       <button id="addTodoButton">追加</button>
       <ul id="todoList"></ul>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const todoInput = document.getElementById('todoInput');
+        const addTodoBtn = document.getElementById('addTodoButton');
+        const todoList = document.getElementById('todoList');
+
+        addTodoBtn.addEventListener('click', () => {
+          const text = todoInput.value.trim();
+          if (text == '') {
+            alert('有効なアイテムを入力してください');
+            return;
+          }
+
+          const li = document.createElement('li');
+          li.textContent = text;
+          li.addEventListener('click', () => {
+            li.classList.toggle('completed');
+            li.style.cursor = 'pointer';
+          });
+
+          todoList.appendChild(li);
+        });
+      });
+    </script>
 
     <div class="task">
       <h2>課題4: 要素の表示/非表示</h2>
