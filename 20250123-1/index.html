@@ -147,12 +147,9 @@
         function initProblem6() {
           const drop_zone = document.getElementById('drop-zone');
           const box = document.getElementById('draggable');
-          let is_in = false;
 
           drop_zone.addEventListener('dragenter', (e) => {
             drop_zone.style.backgroundColor = 'yellow';
-            is_in = true;
-            console.log('is_in:' + is_in);
           });
 
           drop_zone.addEventListener('dragover', (e) => {
@@ -161,8 +158,6 @@
 
           drop_zone.addEventListener('dragleave', (e) => {
             drop_zone.style.backgroundColor = 'white';
-            is_in = false;
-            console.log('is_in:' + is_in);
           });
 
           box.addEventListener('mousedown', (e) => {
@@ -174,15 +169,6 @@
             drop_zone.style.backgroundColor = 'white';
             drop_zone.appendChild(box.cloneNode(true));
           });
-
-          // drop_zone.addEventListener('drop', (e) => {
-          //   const rect = drop_zone.getBoundingClientRect();
-          //   const x = e.clientX - rect.left - box.offsetWidth / 2;
-          //   const y = e.clientY - rect.top - box.offsetHeight / 2;
-          //   box.style.position = 'absolute';
-          //   box.style.left = `${x}px`;
-          //   box.style.top = `${y}px`;
-          // });
         }
       });
     </script>

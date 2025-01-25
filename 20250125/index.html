@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM操作演習</title>
+    <style>
+      .task {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      .hidden {
+        display: none;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM操作演習</h1>
+
+    <div class="task">
+      <h2>課題1: クリックイベント</h2>
+      <p>
+        下のボタンをクリックすると、テキストの色が変わるようにしてください。
+      </p>
+      <p id="colorText">この文字の色を変えてください</p>
+      <button id="colorButton">色を変更</button>
+    </div>
+
+    <div class="task">
+      <h2>課題2: フォーム操作</h2>
+      <p>
+        入力された文字を表示エリアに反映させてください。空白の場合はエラーメッセージを表示してください。
+      </p>
+      <input type="text" id="inputText" />
+      <button id="submitButton">送信</button>
+      <p id="displayArea"></p>
+      <p id="errorMessage" class="hidden" style="color: red">
+        エラー: 文字を入力してください
+      </p>
+    </div>
+
+    <div class="task">
+      <h2>課題3: リスト操作</h2>
+      <p>
+        新しいアイテムを追加し、各アイテムをクリックすると完了状態になるようにしてください。
+      </p>
+      <input type="text" id="todoInput" />
+      <button id="addTodoButton">追加</button>
+      <ul id="todoList"></ul>
+    </div>
+
+    <div class="task">
+      <h2>課題4: 要素の表示/非表示</h2>
+      <button id="toggleButton">表示/非表示</button>
+      <div id="toggleContent" class="hidden">
+        <p>この内容の表示/非表示を切り替えてください</p>
+        <img src="/api/placeholder/200/150" alt="サンプル画像" />
+      </div>
+    </div>
+  </body>
+</html>
