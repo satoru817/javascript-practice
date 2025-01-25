@@ -123,5 +123,17 @@
         <img src="/api/placeholder/200/150" alt="サンプル画像" />
       </div>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('toggleButton');
+        const toggleContent = document.getElementById('toggleContent');
+
+        toggleBtn.addEventListener('click', () => {
+          console.log('clicked');
+          toggleContent.classList.toggle('hidden');
+        });
+      });
+    </script>
   </body>
 </html>
