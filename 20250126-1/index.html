@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shopping Cart Exercise</title>
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="shopping-cart">
+      <h2>ショッピングカート</h2>
+
+      <div class="products">
+        <div class="product" data-id="1">
+          <span class="name">コーヒー</span>
+          <span class="price">500</span>円
+          <div class="quantity-control">
+            <button class="decrease">-</button>
+            <span class="quantity">1</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+
+        <div class="product" data-id="2">
+          <span class="name">紅茶</span>
+          <span class="price">400</span>円
+          <div class="quantity-control">
+            <button class="decrease">-</button>
+            <span class="quantity">1</span>
+            <button class="increase">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary">
+        <div id="subtotal">小計: 900円</div>
+        <div id="tax">消費税(10%): 90円</div>
+        <div id="total">合計: 990円</div>
+      </div>
+    </div>
+  </body>
+</html>
