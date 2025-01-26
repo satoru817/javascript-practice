@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo List Exercise</title>
+    <style>
+      .todo-container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .input-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      #todoInput {
+        flex-grow: 1;
+        padding: 8px;
+      }
+      .error {
+        color: red;
+        display: none;
+        margin-bottom: 10px;
+      }
+      .todo-list {
+        list-style: none;
+        padding: 0;
+      }
+      .todo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px;
+        border: 1px solid #eee;
+        margin-bottom: 5px;
+      }
+      .completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+      .todo-count {
+        margin-top: 20px;
+        text-align: right;
+        color: #666;
+      }
+      .todo-item button {
+        padding: 4px 8px;
+        margin-left: 10px;
+        border: none;
+        background-color: #ff4444;
+        color: white;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .todo-item button:hover {
+        background-color: #cc0000;
+      }
+
+      .todo-item span {
+        cursor: pointer;
+        flex-grow: 1;
+        padding: 4px 0;
+      }
+
+      .todo-item span:hover {
+        color: #666;
+      }
+
+      #addButton {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #addButton:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <script src="script_ai.js" defer></script>
+  </head>
+  <body>
+    <div class="todo-container">
+      <div class="input-container">
+        <input type="text" id="todoInput" placeholder="新しいタスクを入力" />
+        <button id="addButton">追加</button>
+      </div>
+      <div id="errorText" class="error">タスクを入力してください</div>
+      <ul id="todoList" class="todo-list"></ul>
+      <div id="todoCount" class="todo-count">総タスク数: 0</div>
+    </div>
+  </body>
+</html>
