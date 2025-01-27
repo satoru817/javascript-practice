@@ -16,15 +16,29 @@ btn1.addEventListener('click',()=>{
 var addBtn = document.getElementById("addBtn");
 var itemList = document.getElementById('itemList');
 
-addBtn.addEventListener('click',(e)=>{
-    e.preventDefault;
-    var inputText = document.getElementById("newItem").value;
+// addBtn.addEventListener('click',(e)=>{
+//     e.preventDefault();
+//     var inputText = document.getElementById("newItem").value;
 
-    console.log(inputText);
+//     console.log(inputText);
 
-    const li = document.createElement('li');
-    li.innerText = inputText;
-    itemList.appendChild(li);
+//     const li = document.createElement('li');
+//     li.innerText = inputText;
+//     itemList.appendChild(li);
+// });
+
+// 入力フィールドのクリア
+addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const inputField = document.getElementById("newItem");
+    const inputText = inputField.value;
+    
+    if (inputText.trim() !== "") {
+        const li = document.createElement('li');
+        li.textContent = inputText;  // innerTextよりtextContentを推奨
+        itemList.appendChild(li);
+        inputField.value = "";  // 入力クリア
+    }
 });
 
 
@@ -44,7 +58,7 @@ const nameInput = document.getElementById("username");
 const myForm = document.getElementById("myForm");
 
 myForm.addEventListener('submit',(e)=>{
-    e.preventDefault;
+    e.preventDefault();
     const name = nameInput.value;
 
     if(name.trim()==""){
