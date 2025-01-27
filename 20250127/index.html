@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List with Categories</title>
+    <style>
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            margin: 4px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .task-item.important {
+            background-color: #ffe8e8;
+        }
+        .task-item.completed {
+            background-color: #e8ffe8;
+            text-decoration: line-through;
+        }
+        .task-actions {
+            margin-left: auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: red;
+            margin: 4px 0;
+        }
+        .category-badge {
+            padding: 2px 6px;
+            border-radius: 12px;
+            margin-right: 8px;
+            font-size: 12px;
+            background-color: #e9ecef;
+        }
+        #task-counts {
+            margin: 16px 0;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" style="max-width: 600px; margin: 20px auto; padding: 20px;">
+        <h1>Todo List with Categories</h1>
+        
+        <div>
+            <input type="text" id="taskInput" placeholder="新しいタスクを入力">
+            <select id="categorySelect">
+                <option value="work">仕事</option>
+                <option value="personal">個人</option>
+                <option value="shopping">買い物</option>
+            </select>
+            <button id="addButton">追加</button>
+            <div id="errorMessage" class="error hidden">タスクを入力してください</div>
+        </div>
+
+        <div id="task-counts">
+            <div>全体のタスク数: <span id="totalCount">0</span></div>
+            <div>完了したタスク数: <span id="completedCount">0</span></div>
+        </div>
+
+        <div>
+            <button id="showAllButton">すべて</button>
+            <button id="showActiveButton">未完了</button>
+            <button id="showCompletedButton">完了済み</button>
+        </div>
+
+        <div id="taskList"></div>
+    </div>
+</body>
+</html>
