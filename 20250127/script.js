@@ -45,6 +45,60 @@ document.addEventListener('DOMContentLoaded',()=>{
         })
     }
 
+    const setToggleImportant=(btn,div)=>{
+        btn.style.cursor='pointer';
+        btn.addEventListener('click',()=>{
+            div.classList.toggle('important');
+        })
+    }
+
+    const setDeleteFunction=(btn,div)=>{
+        btn.style.cursor='pointer';
+        btn.addEventListener('click',()=>{
+            div.remove();
+        })
+    }
+
+    const createTaskItem =(genre,text)=>{
+        const taskItem = document.createElement('div');
+        taskItem.className = 'task-item';
+        
+        const sp1 = document.createElement('span');
+        sp1.className='category-badge';
+        sp1.textContent=translate(genre);
+
+        const sp2 = document.createElement('span');
+        sp2.className = 'task-text';
+        sp2.textContent=text;
+
+        const div = document.createElement('div');
+        div.className = 'task-actions';
+
+        const impBtn = document.createElement('button');
+        impBtn.className='important-btn';
+
+        
+        setToggleImportant(impBtn,taskItem);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className='delete-btn';
+
+        setDeleteFunction(deleteBtn,taskItem);
+
+        div.appendChild(deleteBtn);
+        div.appendChild(impBtn);
+
+        taskItem.appendChild(sp1);
+        taskItem.appendChild(sp2);
+        taskItem.appendChild(div);
+
+        
+
+
+        return taskItem;
+            
+    }
+
     const addTask = (input,select,list,counter)=>{
         const text = validateInput(input);
 
@@ -53,11 +107,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
 
         const genre = select.value;
+
+        const taskItem = createTaskItem(genre,text);
         
-        const li = document.createElement('li');
-        li.textContent = `${translate(genre)}:${text}`;
-        setCompleteFunction(li);
-        list.appendChild(li);
+        taskList.appendChild(taskInput);
 
         updateCounter(1,counter);
 
