@@ -6,12 +6,26 @@ document.addEventListener('DOMContentLoaded',()=>{
     const shoppingList = document.getElementById('shoppingList');
     const total = document.getElementById('total');
 
+    const setTotalPrice =(list,total)=>{
+        const items = list.getElementsByClassName('item');
+        let total_amount = 0;
+        [...items].forEach(item=>{
+            const price = item.querySelector('.item_price');
+            const count = item.querySelector('.count');
+            total_amount += pareseInt(price.value)*parseInt(count.value);
+        })
+
+        total.textContent = `合計金額: ${total_amount}円`;
+    
+    }
+
     const setMinusFunction = (btn,span)=>{
         btn.addEventListener('click',()=>{
             let curr = parseInt(span.textContent);
             if(curr>0){
                 span.textContent = curr-1;
             }
+            setTotalPrice(shoppingList,total);
         })
     }
 
@@ -19,6 +33,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         btn.addEventListener('click',()=>{
             let curr = parseInt(span.textContent);
             span.textContent = curr+1;
+            setTotalPrice(shoppingList,total);
         })
     }
 
@@ -30,6 +45,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         minusBtn.textContent = '-';
         plusBtn.textContent = '+';
         numSpan.textContent = '1';
+        numSpan.className='count';
 
         setMinusFunction(minusBtn,numSpan);
         setPlusFunction(plusBtn,numSpan);
@@ -63,6 +79,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         setNumChangeFunction(newItem);
 
         list.appendChild(newItem);
+        setTotalPrice(shoppingList,total);
 
     }
 
