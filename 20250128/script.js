@@ -4,15 +4,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     const addBtn = document.getElementById('addButton');
     const errorText = document.getElementById('errorText');
     const shoppingList = document.getElementById('shoppingList');
-    const total = document.getElementById('total');
+    const total = document.getElementById('totalAmount');
 
     const setTotalPrice =(list,total)=>{
         const items = list.getElementsByClassName('item');
         let total_amount = 0;
         [...items].forEach(item=>{
-            const price = item.querySelector('.item_price');
+            const price = item.querySelector('.item_price').querySelector('strong');
+
             const count = item.querySelector('.count');
-            total_amount += pareseInt(price.value)*parseInt(count.value);
+            total_amount += parseInt(price.textContent)*parseInt(count.textContent);
         })
 
         total.textContent = `合計金額: ${total_amount}円`;
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const setMinusFunction = (btn,span)=>{
         btn.addEventListener('click',()=>{
             let curr = parseInt(span.textContent);
-            if(curr>0){
+            if(curr>1){
                 span.textContent = curr-1;
             }
             setTotalPrice(shoppingList,total);
@@ -55,6 +56,19 @@ document.addEventListener('DOMContentLoaded',()=>{
         item.appendChild(plusBtn);
         
     }
+
+    const setDeleteFunction=(item)=>{
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '削除';
+        
+        deleteBtn.addEventListener('click',()=>{
+            item.remove();
+            setTotalPrice(shoppingList,total);
+        });
+
+        item.appendChild(deleteBtn);
+
+    }
     
     const createNewItem=(name,price,error,list)=>{
         if(name.value.trim()=='' || price.value <= 0){
@@ -70,16 +84,21 @@ document.addEventListener('DOMContentLoaded',()=>{
         const item_name = document.createElement('span');
         item_name.textContent = name.value.trim();
 
-        const item_price = document.createElement('span')
-        item_price.textContent = `: ${price.value}円`;
+        const item_price = document.createElement('span');
+        item_price.innerHTML = `<strong>${price.value}</strong>円`;
+        item_price.className = 'item_price';
 
         newItem.appendChild(item_name);
         newItem.appendChild(item_price);
 
         setNumChangeFunction(newItem);
 
+        setDeleteFunction(newItem);
+
         list.appendChild(newItem);
         setTotalPrice(shoppingList,total);
+        name.value='';
+        price.value='';
 
     }
 
