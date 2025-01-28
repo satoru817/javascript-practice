@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         const taskItem = createTaskItem(genre,text);
         
-        taskList.appendChild(taskInput);
+        list.appendChild(taskInput);
 
         updateCounter(1,counter);
 
