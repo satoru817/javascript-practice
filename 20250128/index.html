@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ショッピングリスト</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        .shopping-list {
+            list-style: none;
+            padding: 0;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-controls button {
+            padding: 5px 10px;
+            background-color: #e9ecef;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            display: none;
+            margin-top: 5px;
+        }
+        .total {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style >
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ショッピングリスト</h1>
+        
+        <div class="input-group">
+            <input type="text" id="itemName" placeholder="商品名">
+            <input type="number" id="itemPrice" placeholder="価格">
+            <button id="addButton">追加</button>
+            <div id="errorText" class="error">商品名と価格を入力してください</div>
+        </div>
+
+        <ul id="shoppingList" class="shopping-list">
+            <!-- Items will be added here -->
+        </ul>
+
+        <div id="totalAmount" class="total">
+            合計金額: 0円
+        </div>
+    </div>
+</body>
+</html>
