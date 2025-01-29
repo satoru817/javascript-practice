@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const taskList = document.getElementById('taskList');
     const taskCount = document.getElementById('taskCount');
     const errorText = document.getElementById('errorText');
+    const numRegex = /\d+/;//これ''で囲わないことに注意！
 
     const checkInput=(input)=>{
         return input.value.trim() != '';
@@ -16,6 +17,32 @@ document.addEventListener('DOMContentLoaded',()=>{
         setTimeout(()=>{
             text.style.display='none';
         },3000)
+    }
+
+    const incrementCount=(counter)=>{
+        let curr = parseInt(counter.textContent.match(numRegex)[0]);
+        curr++;
+        counter.textContent=`総タスク数： ${curr}`;
+
+    }
+
+    const decrementCount=(counter)=>{
+        let curr = parseInt(counter.textContent.match(numRegex)[0]);
+        curr--;
+        counter.textContent=`総タスク数： ${curr}`;
+    }
+
+    const setCompleteToggle=(item,btn)=>{
+        btn.addEventListener('click',()=>{
+            item.classList.toggle('completed');
+        })
+    }
+
+    const setCompleteBtn=(taskItem)=>{
+        const completeBtn = document.createElement('button');
+        completeBtn.textContent='完了'
+        setCompleteToggle(taskItem,completeBtn);
+        taskItem.appendChild(completeBtn);
     }
 
     const addTask=(input,select,list,count,error)=>{
@@ -33,9 +60,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         taskItem.appendChild(task_name);
         taskItem.className = 'task-item';
         taskItem.classList.add(`${priority}-priority`);
-
+        setCompleteBtn(taskItem);
+        
         list.appendChild(taskItem);
-
+        incrementCount(count);
 
     }
 
