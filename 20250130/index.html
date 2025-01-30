@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM操作 練習問題</title>
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+      .task-list {
+        margin: 20px 0;
+      }
+    </style>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>ToDoリスト</h1>
+
+    <div id="app">
+      <input type="text" id="taskInput" placeholder="新しいタスクを入力" />
+      <button id="addButton">追加</button>
+      <ul class="task-list" id="taskList">
+        <li>サンプルタスク1 <button class="deleteBtn">削除</button></li>
+        <li>サンプルタスク2 <button class="deleteBtn">削除</button></li>
+      </ul>
+    </div>
+  </body>
+</html>
