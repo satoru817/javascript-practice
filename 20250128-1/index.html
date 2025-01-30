@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Task Manager</title>
     <style>
-        .completed {
-            text-decoration: line-through;
-            color: gray;
-        }
-        .error {
-            color: red;
-            display: none;
-        }
-        .task-item {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-        .high-priority {
-            background-color: #ffebee;
-        }
-        .medium-priority {
-            background-color: #fff3e0;
-        }
-        .low-priority {
-            background-color: #e8f5e9;
-        }
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .error {
+        color: red;
+        display: none;
+      }
+      .task-item {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
+      .high-priority {
+        background-color: #ffebee;
+      }
+      .medium-priority {
+        background-color: #fff3e0;
+      }
+      .low-priority {
+        background-color: #e8f5e9;
+      }
     </style>
     <script src="script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="task-manager">
-        <h2>タスク管理</h2>
-        <div id="task-form">
-            <input type="text" id="taskInput" placeholder="新しいタスクを入力">
-            <select id="prioritySelect">
-                <option value="high">高</option>
-                <option value="medium">中</option>
-                <option value="low">低</option>
-            </select>
-            <button id="addTask">追加</button>
-            <p id="errorText" class="error">タスクを入力してください</p>
-        </div>
-        
-        <div id="filter-section">
-            <select id="filterPriority">
-                <option value="all">全て</option>
-                <option value="high">高優先度</option>
-                <option value="medium">中優先度</option>
-                <option value="low">低優先度</option>
-            </select>
-        </div>
+      <h2>タスク管理</h2>
+      <div id="task-form">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="新しいタスクを入力"
+          autofocus
+        />
+        <select id="prioritySelect">
+          <option value="high">高</option>
+          <option value="medium">中</option>
+          <option value="low">低</option>
+        </select>
+        <button id="addTask">追加</button>
+        <p id="errorText" class="error">タスクを入力してください</p>
+      </div>
 
-        <div id="taskList"></div>
-        <div id="taskCount">総タスク数: 0</div>
+      <div id="filter-section">
+        <select id="filterPriority">
+          <option value="all">全て</option>
+          <option value="high">高優先度</option>
+          <option value="medium">中優先度</option>
+          <option value="low">低優先度</option>
+        </select>
+      </div>
+
+      <div id="taskList"></div>
+      <div id="taskCount">総タスク数: 0</div>
     </div>
-</body>
+  </body>
 </html>
