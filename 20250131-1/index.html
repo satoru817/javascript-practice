@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>シンプルメモ帳</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      #memoInput {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+      }
+      #addButton {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      #memoList {
+        margin-top: 20px;
+      }
+      .memo-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+      .memo-item.editing {
+        background-color: #f9f9f9;
+      }
+      .delete-btn {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>シンプルメモ帳</h1>
+    <input type="text" id="memoInput" placeholder="新しいメモを入力" />
+    <button id="addButton">追加</button>
+    <ul id="memoList"></ul>
+  </body>
+</html>
