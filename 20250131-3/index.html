@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>買い物リスト</title>
+        <style>
+            .error {
+                color: red;
+            }
+            .total {
+                font-weight: bold;
+            }
+        </style>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div>
+            <input type="text" id="itemName" placeholder="商品名" />
+            <input type="number" id="itemPrice" placeholder="価格" />
+            <button id="addButton">追加</button>
+            <div id="errorText" class="error"></div>
+        </div>
+        <ul id="shoppingList"></ul>
+        <div id="totalPrice" class="total"></div>
+    </body>
+</html>
