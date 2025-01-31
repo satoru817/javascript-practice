@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>商品管理システム</title>
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .product-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .highlight {
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+      }
+      .stock-zero {
+        opacity: 0.5;
+      }
+    </style>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>商品管理</h1>
+
+      <!-- 商品追加フォーム -->
+      <div class="form-group">
+        <input type="text" id="productName" placeholder="商品名" />
+        <input type="number" id="productPrice" placeholder="価格" min="0" />
+        <input type="number" id="productStock" placeholder="在庫数" min="0" />
+        <button id="addProduct">商品追加</button>
+      </div>
+
+      <!-- 検索フィルター -->
+      <div class="filter-group">
+        <input type="text" id="searchInput" placeholder="商品名で検索..." />
+        <button id="sortPrice">価格でソート</button>
+      </div>
+
+      <!-- 商品リスト -->
+      <div id="productList">
+        <!-- サンプル商品 -->
+        <div class="product-card">
+          <div class="product-info">
+            <h3>サンプル商品1</h3>
+            <p>価格: 1,000円</p>
+            <p>在庫: <span class="stock-count">5</span>個</p>
+          </div>
+          <div class="product-actions">
+            <button class="sell-btn">販売</button>
+            <button class="delete-btn">削除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
