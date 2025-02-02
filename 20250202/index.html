@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>買い物リストアプリ</title>
+    <script src="app.js" defer></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div
+      class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6"
+    >
+      <h1 class="text-2xl font-bold text-gray-800 mb-4">買い物リスト</h1>
+
+      <!-- 入力フォーム -->
+      <div class="mb-6">
+        <div class="flex gap-2 mb-2">
+          <input
+            type="text"
+            id="itemName"
+            placeholder="商品名"
+            class="flex-1 p-2 border rounded focus:outline-none focus:border-blue-500"
+          />
+          <input
+            type="number"
+            id="itemPrice"
+            placeholder="価格"
+            class="w-24 p-2 border rounded focus:outline-none focus:border-blue-500"
+          />
+        </div>
+        <button
+          id="addButton"
+          class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+        >
+          追加
+        </button>
+        <p id="errorText" class="text-red-500 text-sm mt-1 hidden"></p>
+      </div>
+
+      <!-- リスト表示エリア -->
+      <div id="shoppingList" class="space-y-2"></div>
+
+      <!-- 合計金額 -->
+      <div class="mt-4 pt-4 border-t">
+        <p class="text-right text-lg font-bold">
+          合計: <span id="totalAmount">0</span>円
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
