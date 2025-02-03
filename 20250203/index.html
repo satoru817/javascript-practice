@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ショッピングカート0203</title>
+    <style>
+        .error { color: red; display: none; }
+        .cart-empty { display: none; }
+    </style>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div>
+        <h2>商品追加</h2>
+        <input type="text" id="itemName" placeholder="商品名">
+        <input type="number" id="itemPrice" placeholder="価格">
+        <button id="addBtn">追加</button>
+        <p id="errorText" class="error">正しい値を入力してください</p>
+    </div>
+
+    <div>
+        <h2>カート内容</h2>
+        <ul id="cartItems"></ul>
+        <p id="emptyText" class="cart-empty">カートは空です</p>
+        <p>合計金額: <span id="totalPrice">0</span>円</p>
+    </div>
+</body>
+</html>
