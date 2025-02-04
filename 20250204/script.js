@@ -5,15 +5,16 @@ class ItemManager{
 
     loadItems(){
         const jsonData = localStorage.getItem('items');
+        let items = null;
         if(jsonData){
-            const items = JSON.parse(jsonData);
+            items = JSON.parse(jsonData);
         }
 
         return items ? items:[];
     }
 
     save(){
-        localStorage.setItem('items',JSON.stringify(items));
+        localStorage.setItem('items',JSON.stringify(this.items));
     }
 
     delete(id){
@@ -32,9 +33,9 @@ class ItemManager{
         return this.items.find((item)=>item.id === id);
     }
 
-    complete(id){
+    completeToggle(id){
         const itemToComplete = this.getItem(id);
-        itemToComplete.completed = true;
+        itemToComplete.completed = !itemToComplete.completed;
         this.save();
         return itemToComplete;
     }
@@ -83,7 +84,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                     <span>${item.quantity}</span>
                     <button class = 'plus'>+</button>
                     <button class = 'minus'>-</button>
-                    <button class = 'complete'>完了</button>`
+                    <button class = 'complete'>完了</button>
+                    <button class='delete'>削除</button>`
         if(item.completed){
             li.classList.add('completed');
         }
@@ -102,7 +104,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const createItem=()=>{
 
-        const item_name = itemName.value.trime();
+        const item_name = itemName.value.trim();
         if(item_name === ''){
             errorMessage.style.display='block';
             itemName.focus();
@@ -123,12 +125,59 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         const item = manager.add(item_name,item_quantity);
         setDOMItem(item);
+
+        itemName.value='';
+        itemQuantity.value='';
         return;
 
     }
 
     addButton.addEventListener('click',()=>{
         createItem();
+    })
+
+    clearButton.addEventListener('click',()=>{
+        if(confirm('本当にすべての商品を削除しますか？')){
+            manager.erase();
+            shoppingList.innerHTML='';
+        }
+        return;
+    })
+
+    shoppingList.addEventListener('click',(e)=>{
+        const target = e.target;
+
+        if(target.classList.contains('complete')){
+            const li = target.parentElement;
+            li.classList.toggle('completed');
+            const id = parseInt(li.id);
+            manager.completeToggle(id);
+            return;
+        }
+
+        if(target.classList.contains('plus')){
+            const li = target.parentElement;
+            const id = parseInt(li.id);
+            const incrementedItem = manager.increment(id);
+            li.replaceWith(createDOMItem(incrementedItem));
+            return;
+        }
+
+        if(target.classList.contains('minus')){
+            const li = target.parentElement;
+            const id = parseInt(li.id);
+            const decrementedItem = manager.decrement(id);
+            li.replaceWith(createDOMItem(decrementedItem));
+            return;
+        }
+
+        if(target.classList.contains('delete')){
+            const li = target.parentElement;
+            const id = parseInt(li.id);
+            manager.delete(id);
+            li.remove();
+            return;
+        }
     })
 
 })
