@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO アプリケーション課題</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>TODO アプリケーション課題</h1>
+    
+    <div id="app">
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="新しいタスクを入力">
+            <button type="submit">追加</button>
+        </form>
+        
+        <ul id="todo-list">
+            <!-- TODOリストはここに追加されます -->
+        </ul>
+        
+        <button id="clear-all">全て削除</button>
+    </div>
+
+    <!-- 問題の要件 -->
+    <div id="requirements">
+        <h2>実装要件:</h2>
+        <ol>
+            <li>新しいTODOの追加
+                <ul>
+                    <li>フォーム送信時に新しいTODOをリストに追加</li>
+                    <li>入力欄は送信後にクリア</li>
+                    <li>空の入力は無視</li>
+                </ul>
+            </li>
+            <li>TODOの状態管理
+                <ul>
+                    <li>各TODOをクリックで完了/未完了の切り替え</li>
+                    <li>完了状態はクラス「completed」で視覚的に表示</li>
+                </ul>
+            </li>
+            <li>LocalStorage連携
+                <ul>
+                    <li>ページ読み込み時にLocalStorageからTODOを復元</li>
+                    <li>TODOの追加・状態変更時にLocalStorageを更新</li>
+                </ul>
+            </li>
+            <li>全削除機能
+                <ul>
+                    <li>「全て削除」ボタンでリストとLocalStorageをクリア</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <!-- 解答用のscriptタグ -->
+    <script>
+    // ここにコードを実装してください
+    
+    </script>
+</body>
+</html>
