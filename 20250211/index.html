@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .weather-container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+      .error-message {
+        color: red;
+        display: none;
+      }
+      .weather-info {
+        display: none;
+      }
+      .loading {
+        display: none;
+      }
+    </style>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>天気情報アプリ</h1>
+
+    <div>
+      <input type="text" id="cityInput" placeholder="都市名を入力（英語）" />
+      <button id="searchButton">検索</button>
+    </div>
+
+    <div class="loading" id="loadingMessage">データを取得中....</div>
+
+    <div class="error-message" id="errorMessage">
+      エラーが発生しました。都市名を確認してください。
+    </div>
+
+    <div class="weather-container weather-info" id="weatherInfo">
+      <h2 id="cityName">City Name</h2>
+      <p>気温: <span id="temperature">-</span>°C</p>
+      <p>湿度: <span id="humidity">-</span>%</p>
+      <p>天気: <span id="weatherDescription">-</span></p>
+    </div>
+  </body>
+</html>
