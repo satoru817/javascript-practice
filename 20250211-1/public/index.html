@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Gallery Exercise</title>
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .controls {
+        margin: 20px 0;
+        display: flex;
+        gap: 10px;
+      }
+      .error {
+        color: red;
+        display: none;
+        margin-top: 10px;
+      }
+      .loading {
+        display: none;
+        margin-top: 10px;
+      }
+      button {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+      select {
+        padding: 8px;
+        border-radius: 4px;
+      }
+    </style>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dog Gallery Exercise</h1>
+      <div class="controls">
+        <select id="breedSelect">
+          <option value="">Select a breed</option>
+        </select>
+        <button id="loadButton">Load Images</button>
+        <button id="clearButton">Clear Gallery</button>
+      </div>
+      <div id="loading" class="loading">Loading...</div>
+      <div id="error" class="error">エラーが発生しました。</div>
+      <div id="gallery" class="gallery"></div>
+    </div>
+
+    <script>
+      // ここにJavaScriptコードを書いてください
+
+      // 課題:
+      // 1. Dog API (https://dog.ceo/dog-api/) を使用して犬種の一覧を取得し、
+      //    セレクトボックスに表示してください
+      // 2. Load Imagesボタンをクリックしたら、選択された犬種の画像を3枚取得して
+      //    表示してください
+      // 3. Clear Galleryボタンをクリックしたら、表示されている画像をクリアしてください
+      // 4. データ取得中は「Loading...」と表示し、ボタンを無効化してください
+      // 5. エラーが発生した場合は、エラーメッセージを表示してください
+
+      // ヒント:
+      // - 犬種一覧のエンドポイント: https://dog.ceo/api/breeds/list/all
+      // - 特定の犬種の画像を取得するエンドポイント: https://dog.ceo/api/breed/{breed}/images/random/3
+      // - fetch APIを使用してデータを取得できます
+      // - DOMの操作には、getElementById、createElement、appendChildなどが使えます
+      // - 非同期処理にはasync/awaitを使用することをお勧めします
+    </script>
+  </body>
+</html>
